@@ -1,0 +1,19 @@
+<section data-ng-controller="PoliticiansController" data-ng-init="find()">
+    <div class="page-header">
+        <h1>Politicians</h1>
+    </div>
+    <div class="list-group">
+        <a data-ng-repeat="politician in politicians" data-ng-href="#!/politicians/{{politician._id}}" class="list-group-item">
+			<small class="list-group-item-text">
+				Posted on
+				<span data-ng-bind="politician.created | date:'medium'"></span>
+				by
+				<span data-ng-bind="politician.user.displayName"></span>
+			</small>
+			<h4 class="list-group-item-heading" data-ng-bind="politician.name"></h4>
+        </a>
+    </div>
+    <div class="alert alert-warning text-center" data-ng-hide="!politicians.$resolved || politicians.length">
+    	No Politicians yet, why don't you <a href="/#!/politicians/create">create one</a>?
+    </div>
+</section>

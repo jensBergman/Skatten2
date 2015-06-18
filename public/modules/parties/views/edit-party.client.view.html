@@ -1,0 +1,28 @@
+<section data-ng-controller="PartiesController" data-ng-init="findOne()">
+    <div class="page-header">
+        <h1>Ändra parti</h1>
+    </div>
+    <div class="col-md-12">
+        <form class="form-horizontal" data-ng-submit="update()" novalidate>
+            <fieldset>
+                <div class="form-group">
+                    <label class="control-label" for="name">Namn</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="party.name" id="name" class="form-control" placeholder="Ex: Socialdemokraterna" required>
+                    </div>
+                    <label class="control-label" for="block">Block</label>
+                    <div class="controls">
+                        <!--<input type="text" data-ng-model="party.block" id="block" class="form-control" placeholder="Ex: Rödgröna" required>-->
+                        <select data-ng-options="o.name for o in options" data-ng-model="selectedOption"></select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Update" class="btn btn-default">
+                </div>
+				<div data-ng-show="error" class="text-danger">
+					<strong data-ng-bind="error"></strong>
+				</div>
+            </fieldset>
+        </form>
+    </div>
+</section>

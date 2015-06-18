@@ -1,0 +1,25 @@
+<section data-ng-controller="PartiesController" data-ng-init="findOne()">
+	<div class="page-header">
+		<h1>Parti</h1>
+	</div>
+	<div class="pull-right" data-ng-show="((authentication.user) && (authentication.user._id == party.user._id))">
+		<a class="btn btn-primary" href="/#!/parties/{{party._id}}/edit">
+			<i class="glyphicon glyphicon-edit"></i>
+		</a>
+		<a class="btn btn-primary" data-ng-click="remove();">
+			<i class="glyphicon glyphicon-trash"></i>
+		</a>
+	</div>
+	<small>
+		<h4 data-ng-bind="party.name"></h4>
+		<h6 data-ng-bind="party.block"></h6>
+		<em class="text-muted">
+			<small class="list-group-item-text">
+				Posted on
+				<span data-ng-bind="party.created | date:'medium'"></span>
+				by
+				<span data-ng-bind="party.user.displayName"></span>
+			</small>
+		</em>
+	</small>
+</section>
